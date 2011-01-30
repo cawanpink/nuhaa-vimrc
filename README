@@ -2,7 +2,7 @@
 
 go to root directory, run to create tags in each folder
 
-find * -type d -exec /home/cawanpink/bash/vim/gentags {} \;
+find * -type d -exec ~/.vim/gentags {} \;
 
 
 run this one to build global tag file, contains only non-static tags
