@@ -127,4 +127,4 @@ map <Leader>\ :s/^\/\///
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q!<CR>
 
-imap ii <Esc>
+imap ;; <Esc>

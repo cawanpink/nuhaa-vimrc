@@ -17,7 +17,7 @@ to autocomplete, use c-x x-o to pick up public methods + vars
 snipMate
 http://www.vim.org/scripts/script.php?script_id=2540
 
-MRU + Grep + NerdTree + TagList
+MRU + Grep + NerdTree + TagList 
 
 =====================================
 
