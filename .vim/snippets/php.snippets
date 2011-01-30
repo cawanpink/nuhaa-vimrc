@@ -37,7 +37,7 @@ snippet /*
 	 * ${1}
 	 **/
 # Class - post doc
-snippet doc_cp
+snippet doc_c
 	/**
 	 * ${1:undocumented class}
 	 *
@@ -45,108 +45,72 @@ snippet doc_cp
 	 * @author ${3:`g:snips_author`}
 	**/${4}
 # Class Variable - post doc
-snippet doc_vp
+snippet doc_v
 	/**
 	 * ${1:undocumented class variable}
 	 *
 	 * @var ${2:string}
 	 **/${3}
+# Constant Definition - post doc
+snippet doc_d
+	/**
+	 * ${1:undocumented constant}
+	 **/${2}
+# Function - post doc
+snippet doc_f
+	/**
+	 * ${1:undocumented function}
+	 *
+	 * @param ${2:type} ${3:description}
+	 * @return ${4:void}
+	 **/${5}
+# Function signature
+snippet doc_s
+	/**
+	 * ${4:undocumented function}
+	 *
+	 * @param ${5:type} ${6:description}
+	 * @return ${7:void}
+	 **/
+	${1}function ${2}(${3});${8}
+# Header
+snippet doc_h
+	/**
+	 * ${1:description}
+	 *
+	 * @package ${2:default}
+	 * @author ${3:`g:snips_author`} <${4:email}>
+	 * @date `strftime('%d %B, %Y')`
+	 **/
+# Interface
+snippet interface
+	interface ${1:InterfaceName} {
+		${2}
+	}
+# class ...
+snippet class
+	class ${1:ClassName} {
+		${2}
+	}
+# Function
+snippet fn
+	/**
+	 * ${4:undocumented function}
+	 *
+	 * @param ${5:type} ${6:description}
+	 * @return ${7:void}
+	 **/
+	${1:public }function ${2:name}(${3}) {
+		${8}
+	}
 # Class Variable
-snippet doc_v
+snippet var
 	/**
 	 * ${3:undocumented class variable}
 	 *
 	 * @var ${4:string}
 	 **/
 	${1:public} $${2};${5}
-# Class
-snippet doc_c
-	/**
-	 * ${3:undocumented class}
-	 *
-	 * @packaged ${4:default}
-	 * @author ${5:`g:snips_author`}
-	 **/
-	${1:}class ${2:}
-	{${6}
-	} // END $1class $2
-# Constant Definition - post doc
-snippet doc_dp
-	/**
-	 * ${1:undocumented constant}
-	 **/${2}
-# Constant Definition
-snippet doc_d
-	/**
-	 * ${3:undocumented constant}
-	 **/
-	define(${1}, ${2});${4}
-# Function - post doc
-snippet doc_fp
-	/**
-	 * ${1:undocumented function}
-	 *
-	 * @return ${2:void}
-	 * @author ${3:`g:snips_author`}
-	 **/${4}
-# Function signature
-snippet doc_s
-	/**
-	 * ${4:undocumented function}
-	 *
-	 * @return ${5:void}
-	 * @author ${6:`g:snips_author`}
-	 **/
-	${1}function ${2}(${3});${7}
-# Function
-snippet doc_f
-	/**
-	 * ${4:undocumented function}
-	 *
-	 * @return ${5:void}
-	 * @author ${6:`g:snips_author`}
-	 **/
-	${1}function ${2}(${3})
-	{${7}
-	}
-# Header
-snippet doc_h
-	/**
-	 * ${1}
-	 *
-	 * @author ${2:`g:snips_author`}
-	 * @version ${3:$Id$}
-	 * @copyright ${4:$2}, `strftime('%d %B, %Y')`
-	 * @package ${5:default}
-	 **/
-	
-	/**
-	 * Define DocBlock
-	 *//
-# Interface
-snippet doc_i
-	/**
-	 * ${2:undocumented class}
-	 *
-	 * @package ${3:default}
-	 * @author ${4:`g:snips_author`}
-	 **/
-	interface ${1:}
-	{${5}
-	} // END interface $1
-# class ...
-snippet class
-	/**
-	 * ${1}
-	 **/
-	class ${2:ClassName}
-	{
-		${3}
-		function ${4:__construct}(${5:argument})
-		{
-			${6:// code...}
-		}
-	}
 # define(...)
 snippet def
 	define('${1}'${2});${3}

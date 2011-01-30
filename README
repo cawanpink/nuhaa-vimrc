@@ -12,7 +12,6 @@ ctags --verbose -f tags -h ".php" -R --exclude="\.svn" --totals=yes --tag-relati
 =====================================
 PHP autocomplete
 http://www.vim.org/scripts/script.php?script_id=3171
-copy paste phpautocomplete.vim in .vim/autoload folder 
 to autocomplete, use c-x x-o to pick up public methods + vars
 
 snipMate
