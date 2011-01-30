@@ -1,27 +1,29 @@
+let mapleader = ","
+
+" Automatically reload .vimrc when changing
+autocmd! bufwritepost .vimrc source! %
+
 "--------------------------------------------------
 " Character encoding
 set termencoding=utf-8        
 set encoding=utf-8            
 set fileencodings=utf-8      
-"set termencoding=iso-8859-2    
-"set encoding=iso-8859-2      
-"set fileencodings^=iso-8859-2
 
 "--------------------------------------------------
 " Base settings
-set nocompatible          " We're running Vim, not Vi!Update
+set nocompatible          " We're running Vim, not Vi!
 syntax on                 " syntax highlingting
 set backspace=2           " backspace del all
 set history=500           " history of commands
-set autoread                           " Set to auto read when a file is changed from the outside
-set wmh=0                                    " minimal number of lines used for any window
+set autoread              " Set to auto read when a file is changed from the outside
+set wmh=0                 " minimal number of lines used for any window
 set nu                    " show numbers
 set showcmd               " show typed commands in bottom right corcer
 
 "---------------------------------------------------
 " Indentation and tab related
-set ai                                         " auto indent
-set si                                         " smart indent
+set ai                       " auto indent
+set si                       " smart indent
 set tabstop=4                " Force tabs to be displayed/expanded to 4 spaces (instead of default 8).
 set expandtab                " Turn Tab keypresses into spaces. You can still insert real Tabs as [Ctrl]-V [Tab].
 set shiftwidth=4             " When auto-indenting, indent by this much.
@@ -40,9 +42,9 @@ filetype indent on
 
 "--------------------------------------------------
 " Searching
-set sm                                 " jump to matches during entering the pattern
-set hls                         " highlight all matches
-set incsearch                 " and also during entering the pattern
+set sm                       " jump to matches during entering the pattern
+set hls                      " highlight all matches
+set incsearch                " and also during entering the pattern
 
 "--------------------------------------------------
 " wrap
@@ -52,8 +54,8 @@ set textwidth=2048        " text witdth
 
 "---------------------------------------------------
 " Wild menu options for filename completion
-set wildmenu                                  " show menu (bash-like) on tab
-set wildignore=*.o,*~                    " ignor on wildmenu
+set wildmenu                   " show menu (bash-like) on tab
+set wildignore=*.o,*~          " ignor on wildmenu
 set wildmode=longest:full
 
 "--------------------------------------------------
@@ -73,8 +75,8 @@ inoremap <S-Tab> <C-R>=InsertTabWrapper("forward")<CR>
 
 "--------------------------------------------------
 " File tree optins on F7
-map <silent> <F7> :NERDTreeToggle<CR>
-let NERDTreeMapActivateNode='<CR>'
+nnoremap <silent> <F7> :NERDTreeToggle<CR>
+let NERDTreeMapActivateNode=''
 
 "--------------------------------------------------
 " Open in last edit place
@@ -84,15 +86,16 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'
 " Syntax coloring (~/.vim/colors/)
 " available colors: `ls /usr/share/vim/vim??/colors`
 "colorscheme soruby
-colorscheme delek
+colorscheme default
 
 "---------------------------------------------------
 " Ctags options
-set tags=tags;
+set tags=./tags,tags;
+nmap <Leader>t :!(cd %:p:h;ctags -f tags -h ".php" -R --exclude="\.svn" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf-v)&
 
 "---------------------------------------------------
 " Taglist options on F8
-map <silent> <F8> :Tlist<CR>
+nnoremap <silent> <F8> :Tlist<CR>
 
 " tags list on right window
 let Tlist_Use_Right_Window = 1 
@@ -105,7 +108,7 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 " " width of window
 let Tlist_WinWidth = 40
 " " close tlist when a selection is made
-let Tlist_Close_On_Select = 1
+"let Tlist_Close_On_Select = 1
 
 "---------------------------------------------------
 " Grep options on F3
@@ -117,10 +120,11 @@ nnoremap <silent> <F3> :Rgrep<CR>
 "--------------------------------------------------
 " Shortcuts
 "
-" Duplicate a line
-map! <c-d> <esc>yypi
-map <c-d> <esc>yyp
 " comment/uncoment a block 
-map ,/ :s/^/\/\//<CR>
-map ,\ :s/^\/\///<CR>
+map <Leader>/ :s/^/\/\//
+map <Leader>\ :s/^\/\///
 
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q!<CR>
+
+imap ii <Esc>
