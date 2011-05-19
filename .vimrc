@@ -25,10 +25,15 @@ set showcmd               " show typed commands in bottom right corcer
 set ai                       " auto indent
 set si                       " smart indent
 set tabstop=4                " Force tabs to be displayed/expanded to 4 spaces (instead of default 8).
-set expandtab                " Turn Tab keypresses into spaces. You can still insert real Tabs as [Ctrl]-V [Tab].
+"set expandtab                " Turn Tab keypresses into spaces. You can still insert real Tabs as [Ctrl]-V [Tab].
 set shiftwidth=4             " When auto-indenting, indent by this much.
                              " (Use spaces/tabs per "expandtab".)
 retab                        " Change all the existing tab characters to match the current tab settings
+
+"---------------------------------------------------
+" Folding stuff
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
+vnoremap <Space> zf
 
 "--------------------------------------------------
 " reformat status line
