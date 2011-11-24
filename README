@@ -1,4 +1,3 @@
-
 go to root directory, run to create tags in each folder
 
 find * -type d -exec ~/.vim/gentags {} \;
@@ -13,7 +12,7 @@ ctags --verbose -f tags -h ".php" -R --exclude="\.svn" --totals=yes --tag-relati
 snipMate
 http://www.vim.org/scripts/script.php?script_id=2540
 
-MRU + Grep + NerdTree + TagList 
+MRU + Grep + NerdTree + TagList + VCSCommand
 
 =====================================
 
