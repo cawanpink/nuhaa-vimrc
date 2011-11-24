@@ -5,9 +5,9 @@ autocmd! bufwritepost .vimrc source! %
 
 "--------------------------------------------------
 " Character encoding
-set termencoding=utf-8        
-set encoding=utf-8            
-set fileencodings=utf-8      
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=utf-8
 
 "--------------------------------------------------
 " Base settings
@@ -26,8 +26,7 @@ set ai                       " auto indent
 set si                       " smart indent
 set tabstop=4                " Force tabs to be displayed/expanded to 4 spaces (instead of default 8).
 "set expandtab                " Turn Tab keypresses into spaces. You can still insert real Tabs as [Ctrl]-V [Tab].
-set shiftwidth=4             " When auto-indenting, indent by this much.
-                             " (Use spaces/tabs per "expandtab".)
+set shiftwidth=4             " When auto-indenting, indent by this much. (Use spaces/tabs per expandtab.)
 retab                        " Change all the existing tab characters to match the current tab settings
 
 "---------------------------------------------------
@@ -41,7 +40,7 @@ set statusline=%<%f\ (%{&encoding})\ %h%m%r%=%-14.(%l,%c%V%)\ %P         " refor
 set laststatus=2          " always show status line
 
 "--------------------------------------------------
-" enable filetype 
+" enable filetype
 filetype plugin on        " file type based syntax highliht
 filetype indent on
 
@@ -58,7 +57,7 @@ set textwidth=2048        " text witdth
 "set nowrap               " do not wrap lines
 
 "---------------------------------------------------
-" Wild menu options for filename completion
+" File name completion - Wild menu options
 set wildmenu                   " show menu (bash-like) on tab
 set wildignore=*.o,*~          " ignor on wildmenu
 set wildmode=longest:full
@@ -74,9 +73,10 @@ function! InsertTabWrapper(direction)
   else
     return "\<c-n>"
   endif
-endfunction
+endfunction;
 inoremap <Tab> <C-R>=InsertTabWrapper("backward")<CR>
 inoremap <S-Tab> <C-R>=InsertTabWrapper("forward")<CR>
+
 
 "--------------------------------------------------
 " File tree optins on F7
@@ -103,7 +103,7 @@ nmap <Leader>t :!(cd %:p:h;ctags -f tags -h ".php" -R --exclude="\.svn" --totals
 nnoremap <silent> <F8> :Tlist<CR>
 
 " tags list on right window
-let Tlist_Use_Right_Window = 1 
+let Tlist_Use_Right_Window = 1
 "" set the names of flags
 let tlist_php_settings = 'php;c:class;f:function;d:constant'
 " close all folds except for current file
@@ -125,11 +125,12 @@ nnoremap <silent> <F3> :Rgrep<CR>
 "--------------------------------------------------
 " Shortcuts
 "
-" comment/uncoment a block 
-map <Leader>/ :s/^/\/\//
-map <Leader>\ :s/^\/\///
+" comment/uncoment a block
+map <Leader>/ :s/^/\/\//<CR>
+map <Leader>\ :s/^\/\///<CR>
 
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q!<CR>
 
 imap ;; <Esc>
+
