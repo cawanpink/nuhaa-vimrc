@@ -1,5 +1,4 @@
 
-
 go to root directory, run to create tags in each folder
 
 find * -type d -exec ~/.vim/gentags {} \;
@@ -10,9 +9,6 @@ run this one to build global tag file, contains only non-static tags
 ctags --verbose -f tags -h ".php" -R --exclude="\.svn" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf-v --file-scope=no -R
 
 =====================================
-PHP autocomplete
-http://www.vim.org/scripts/script.php?script_id=3171
-to autocomplete, use c-x x-o to pick up public methods + vars
 
 snipMate
 http://www.vim.org/scripts/script.php?script_id=2540
