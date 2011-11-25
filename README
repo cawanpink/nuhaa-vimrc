@@ -1,18 +1,24 @@
-go to root directory, run to create tags in each folder
-
+go to root directory, run to create tags in each folder:
 find * -type d -exec ~/.vim/gentags {} \;
 
 
-run this one to build global tag file, contains only non-static tags
-
+run this one to build global tag file, contains only non-static tags:
 ctags --verbose -f tags -h ".php" -R --exclude="\.svn" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf-v --file-scope=no -R
 
 =====================================
+PLUGINS
 
+pathogen
 snipMate
-http://www.vim.org/scripts/script.php?script_id=2540
-
-MRU + Grep + NerdTree + TagList + VCSCommand
+MRU
+Grep
+Command-t (need to install vim-nox for ruby support)
+TagList
+VCSCommand
+surround
+phpcomplete
+lustyjuggler (need to install vim-nox for ruby support)
+repeat
 
 =====================================
 
@@ -29,6 +35,31 @@ for taglist to work, in ~/.ctags, put this in (default params):
 make svn ignore tags file in every folder. in ~/.subversion/config,
 
 global-ignores = tags
+
+=====================================
+USAGE
+
+snipmate: doc_h<tab>
+grep: F3
+MRU: :MRU
+Command-t: ,t
+VCS: VCSBlame
+TagList: F8
+surround: cs"; ("word" to ;word;)
+repeat: press . to repeat (meant to work with surround)
+lustyjuggler: ,lj
+
+autocomplete keyword: ctrl+x ctrl+p
+autocomplete omni: ctrl+x ctrl+o
+
+change color on the fly
+:colo wombat
+:color default
+
+split window: ctrl+w s
+vertically: ctrl+w v
+navigate between windows:ctrl+h, ctrl+j, ctrl+k, ctrl+l
+open file in split window - :sp file.php
 
 =====================================
 =====================================
