@@ -45,9 +45,12 @@ MRU: :MRU
 Command-t: ,t
 VCS: VCSBlame
 TagList: F8
-surround: cs"; ("word" to ;word;)
+surround: cs"- ("a word" to -a word-)
 repeat: press . to repeat (meant to work with surround)
 lustyjuggler: ,lj
+toggle between paste mode: F2
+edit vimrc: ,ev
+reload vimrc: ,sv
 
 autocomplete keyword: ctrl+x ctrl+p
 autocomplete omni: ctrl+x ctrl+o
@@ -55,6 +58,7 @@ autocomplete omni: ctrl+x ctrl+o
 change color on the fly
 :colo wombat
 :color default
+
 
 split window: ctrl+w s
 vertically: ctrl+w v
