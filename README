@@ -51,6 +51,7 @@ lustyjuggler: ,lj
 toggle between paste mode: F2
 edit vimrc: ,ev
 reload vimrc: ,sv
+to fold/unfold lines: visual select, then space to toggle display
 
 autocomplete keyword: ctrl+x ctrl+p
 autocomplete omni: ctrl+x ctrl+o
