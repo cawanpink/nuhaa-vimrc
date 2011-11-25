@@ -1,7 +1,18 @@
+
+" Use pathogen to easily modify the runtime path to include all
+" plugins under the ~/.vim/bundle directory
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
+" change the mapleader from \ to ,
 let mapleader = ","
 
 " Automatically reload .vimrc when changing
 autocmd! bufwritepost .vimrc source! %
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 "--------------------------------------------------
 " Character encoding
@@ -29,6 +40,9 @@ set tabstop=4                " Force tabs to be displayed/expanded to 4 spaces (
 set shiftwidth=4             " When auto-indenting, indent by this much. (Use spaces/tabs per expandtab.)
 retab                        " Change all the existing tab characters to match the current tab settings
 
+"set some file type specific settings
+autocmd filetype python set expandtab
+
 "---------------------------------------------------
 " Folding stuff
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
@@ -41,8 +55,12 @@ set laststatus=2          " always show status line
 
 "--------------------------------------------------
 " enable filetype
-filetype plugin on        " file type based syntax highliht
+filetype plugin on        " file type based syntax highlight
 filetype indent on
+
+"--------------------------------------------------
+" toggling between paste mode
+set pastetoggle=<F2>
 
 "--------------------------------------------------
 " Searching
@@ -56,6 +74,13 @@ set whichwrap+=<,>,[,]    " where wrap long lines
 set textwidth=2048        " text witdth
 "set nowrap               " do not wrap lines
 
+"--------------------------------------------------
+" Easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 "---------------------------------------------------
 " File name completion - Wild menu options
 set wildmenu                   " show menu (bash-like) on tab
@@ -63,40 +88,20 @@ set wildignore=*.o,*~          " ignor on wildmenu
 set wildmode=longest:full
 
 "--------------------------------------------------
-" Word completion on <TAB>
-function! InsertTabWrapper(direction)
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  elseif "backward" == a:direction
-    return "\<c-p>"
-  else
-    return "\<c-n>"
-  endif
-endfunction;
-inoremap <Tab> <C-R>=InsertTabWrapper("backward")<CR>
-inoremap <S-Tab> <C-R>=InsertTabWrapper("forward")<CR>
-
-
-"--------------------------------------------------
-" File tree optins on F7
-nnoremap <silent> <F7> :NERDTreeToggle<CR>
-let NERDTreeMapActivateNode=''
-
-"--------------------------------------------------
 " Open in last edit place
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
 "--------------------------------------------------
 " Syntax coloring (~/.vim/colors/)
-" available colors: `ls /usr/share/vim/vim??/colors`
-"colorscheme soruby
-colorscheme default
+" available colors: `ls /usr/share/vim/vimXX/colors`
+set t_Co=256
+colorscheme mustang
+"colorscheme default
 
 "---------------------------------------------------
 " Ctags options
 set tags=./tags,tags;
-nmap <Leader>t :!(cd %:p:h;ctags -f tags -h ".php" -R --exclude="\.svn" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf-v)&
+nmap <Leader>c :!(cd %:p:h;ctags -f tags -h ".php" -R --exclude="\.svn" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf-v)&
 
 "---------------------------------------------------
 " Taglist options on F8
@@ -114,6 +119,7 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_WinWidth = 40
 " " close tlist when a selection is made
 "let Tlist_Close_On_Select = 1
+
 
 "---------------------------------------------------
 " Grep options on F3
@@ -133,4 +139,3 @@ nmap <Leader>w :w<CR>
 nmap <Leader>q :q!<CR>
 
 imap ;; <Esc>
-
