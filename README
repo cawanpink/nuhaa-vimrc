@@ -1,8 +1,6 @@
-
 PLUGINS USED:
 
 pathogen
-snipMate
 MRU
 Grep
 Command-t (need to install vim-nox for ruby support)
@@ -12,6 +10,7 @@ surround
 phpcomplete
 lustyjuggler (need to install vim-nox for ruby support)
 repeat
+Tasklist
 
 =====================================
 
@@ -53,6 +52,7 @@ lustyjuggler: ,lj
 toggle between paste mode: F2
 edit vimrc: ,ev
 reload vimrc: ,sv
+Tasklist: ,td
 to fold/unfold lines: visual select, then space to toggle display
 
 autocomplete: tab
