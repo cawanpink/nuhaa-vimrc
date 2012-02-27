@@ -1,4 +1,3 @@
-
 " Use pathogen to easily modify the runtime path to include all
 " plugins under the ~/.vim/bundle directory
 call pathogen#helptags()
@@ -86,6 +85,21 @@ map <C-l> <C-w>l
 set wildmenu                   " show menu (bash-like) on tab
 set wildignore=*.o,*~          " ignor on wildmenu
 set wildmode=longest:full
+
+"--------------------------------------------------
+" Word completion on <TAB>
+function! InsertTabWrapper(direction)
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  elseif "backward" == a:direction
+    return "\<c-p>"
+  else
+    return "\<c-n>"
+  endif
+endfunction
+inoremap <Tab> <C-R>=InsertTabWrapper("backward")<CR>
+inoremap <S-Tab> <C-R>=InsertTabWrapper("forward")<CR>
 
 "--------------------------------------------------
 " Open in last edit place
