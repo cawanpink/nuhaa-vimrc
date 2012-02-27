@@ -11,6 +11,7 @@ phpcomplete
 lustyjuggler (need to install vim-nox for ruby support)
 repeat
 Tasklist
+phpcs
 
 =====================================
 
@@ -54,6 +55,7 @@ edit vimrc: ,ev
 reload vimrc: ,sv
 Tasklist: ,td
 to fold/unfold lines: visual select, then space to toggle display
+phpcs: :Phpcs
 
 autocomplete: tab
 autocomplete keyword: ctrl+x ctrl+p
