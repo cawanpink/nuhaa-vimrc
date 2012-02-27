@@ -1,12 +1,5 @@
-go to root directory, run to create tags in each folder:
-find * -type d -exec ~/.vim/gentags {} \;
 
-
-run this one to build global tag file, contains only non-static tags:
-ctags --verbose -f tags -h ".php" -R --exclude="\.svn" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf-v --file-scope=no -R
-
-=====================================
-PLUGINS
+PLUGINS USED:
 
 pathogen
 snipMate
@@ -19,6 +12,15 @@ surround
 phpcomplete
 lustyjuggler (need to install vim-nox for ruby support)
 repeat
+
+=====================================
+
+we need ctags:
+go to root directory, run to create tags in each folder:
+find * -type d -exec ~/.vim/gentags {} \;
+
+run this one to build global tag file, contains only non-static tags:
+ctags --verbose -f tags -h ".php" -R --exclude="\.svn" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf-v --file-scope=no -R
 
 =====================================
 
@@ -43,7 +45,7 @@ snipmate: doc_h<tab>
 grep: F3
 MRU: :MRU
 Command-t: ,t
-VCS: VCSBlame
+VCS: VCSBlame, VCSLog --stop-on-copy, VCSUpdate (,cu), VCSVimDiff (,cv)
 TagList: F8
 surround: cs"- ("a word" to -a word-)
 repeat: press . to repeat (meant to work with surround)
@@ -53,13 +55,13 @@ edit vimrc: ,ev
 reload vimrc: ,sv
 to fold/unfold lines: visual select, then space to toggle display
 
+autocomplete: tab
 autocomplete keyword: ctrl+x ctrl+p
 autocomplete omni: ctrl+x ctrl+o
 
 change color on the fly
 :colo wombat
 :color default
-
 
 split window: ctrl+w s
 vertically: ctrl+w v
