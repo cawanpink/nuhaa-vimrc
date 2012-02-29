@@ -82,8 +82,8 @@ map <C-l> <C-w>l
 
 "---------------------------------------------------
 " File name completion - Wild menu options
-set wildmenu                   " show menu (bash-like) on tab
-set wildignore=*.o,*~          " ignor on wildmenu
+set wildmenu                            " show menu (bash-like) on tab
+set wildignore=*.o,*~,tags,.svn         " ignor on wildmenu
 set wildmode=longest:full
 
 "--------------------------------------------------
@@ -100,6 +100,20 @@ function! InsertTabWrapper(direction)
 endfunction
 inoremap <Tab> <C-R>=InsertTabWrapper("backward")<CR>
 inoremap <S-Tab> <C-R>=InsertTabWrapper("forward")<CR>
+
+
+function! RunPhpcs()
+    let l:filename=@%
+    let l:phpcs_output=system('phpcs --report=csv '.l:filename)
+"    echo l:phpcs_output
+    let l:phpcs_list=split(l:phpcs_output, "\n")
+    unlet l:phpcs_list[0]
+    cexpr l:phpcs_list
+    cwindow
+endfunction
+
+set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
+command! Phpcs execute RunPhpcs()
 
 "--------------------------------------------------
 " Open in last edit place
@@ -134,6 +148,9 @@ let Tlist_WinWidth = 40
 " " close tlist when a selection is made
 "let Tlist_Close_On_Select = 1
 
+"---------------------------------------------------
+" LustyJuggler
+let g:LustyJugglerSuppressRubyWarning = 1
 
 "---------------------------------------------------
 " Grep options on F3
@@ -141,6 +158,10 @@ let Grep_Skip_Dirs = '.svn'
 let Grep_Default_Filelist = '*.php *.inc *.js *.ini'
 let Grep_Default_Options = '-i'
 nnoremap <silent> <F3> :Rgrep<CR>
+
+"---------------------------------------------------
+" Command-t
+let g:CommandTMatchWindowReverse=1  " show best match at the bottom
 
 "--------------------------------------------------
 " Shortcuts
@@ -152,4 +173,7 @@ map <Leader>\ :s/^\/\///<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q!<CR>
 
+map <leader>td <Plug>TaskList
+
 imap ;; <Esc>
+
