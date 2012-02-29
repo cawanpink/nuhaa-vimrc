@@ -41,7 +41,6 @@ global-ignores = tags
 =====================================
 USAGE
 
-snipmate: doc_h<tab>
 grep: F3
 MRU: :MRU
 Command-t: ,t
