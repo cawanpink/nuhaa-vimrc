@@ -1,26 +1,30 @@
 PLUGINS USED:
 
-pathogen
-MRU
-Grep
-Command-t (need to install vim-nox for ruby support)
-TagList
-VCSCommand
-surround
-phpcomplete
-lustyjuggler (need to install vim-nox for ruby support)
-repeat
-Tasklist
-phpcs
+pathogen - easier plugin management (http://www.vim.org/scripts/script.php?script_id=2332)
+MRU - most recently used files management (http://www.vim.org/scripts/script.php?script_id=521)
+Grep - allows you to search for a pattern in one or more files and jump to them (http://www.vim.org/scripts/script.php?script_id=311)
+Command-t - fast, intuitive mechanism for opening files with a minimal number of keystrokes (http://www.vim.org/scripts/script.php?script_id=3025)
+TagList - source code browser (http://vim-taglist.sourceforge.net/)
+VCSCommand -  manipulating files controlled by CVS, SVN, SVK, git, bzr, and hg within VIM (http://www.vim.org/scripts/script.php?script_id=90)
+phpcomplete (http://www.vim.org/scripts/script.php?script_id=3171)
+lustyjuggler - high speed buffer juggler (http://www.vim.org/scripts/script.php?script_id=2050)
+surround - provides mappings to easily delete, change and add such surroundings in pair (https://github.com/tpope/vim-surround)
+repeat - (https://github.com/tpope/vim-repeat)
+Tasklist - FIXME, TODO, and XXX (or a custom list) and put them in a handy list for you to browse (http://www.vim.org/scripts/script.php?script_id=2607)
+phpcs (http://www.vim.org/scripts/script.php?script_id=39280
 
 =====================================
 
-we need ctags:
+we need ctags (install exuberant-ctags):
 go to root directory, run to create tags in each folder:
 find * -type d -exec ~/.vim/gentags {} \;
 
 run this one to build global tag file, contains only non-static tags:
 ctags --verbose -f tags -h ".php" -R --exclude="\.svn" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf-v --file-scope=no -R
+
+=====================================
+
+for Command-t and lustyjuggler, need to install vim-nox for ruby support
 
 =====================================
 
@@ -39,6 +43,11 @@ make svn ignore tags file in every folder. in ~/.subversion/config,
 global-ignores = tags
 
 =====================================
+
+color themes, put inside colors/ folder
+
+=====================================
+
 USAGE
 
 grep: F3
@@ -60,6 +69,8 @@ phpcomplete: use omni
 autocomplete: tab
 autocomplete keyword: ctrl+x ctrl+p
 autocomplete omni: ctrl+x ctrl+o
+
+to jump to function definition and back: ctrl+[ and ctrl+T
 
 change color on the fly
 :colo wombat
