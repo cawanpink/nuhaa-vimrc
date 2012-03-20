@@ -58,11 +58,7 @@ TagList: F8
 surround: cs"- ("a word" to -a word-)
 repeat: press . to repeat (meant to work with surround)
 lustyjuggler: ,lj
-toggle between paste mode: F2
-edit vimrc: ,ev
-reload vimrc: ,sv
 Tasklist: ,td
-to fold/unfold lines: visual select, then space to toggle display
 phpcs: :Phpcs
 phpcomplete: use omni
 snipmate: doc_h <enter>
@@ -78,14 +74,20 @@ to open function definition in new window: ctrl+w g ctrl+]
 
 file browser: :n.
 
-change color on the fly
-:colo wombat
-:color default
+change color on the fly - :colo wombat
+
 
 split window: ctrl+w s
 vertically: ctrl+w v
 navigate between windows:ctrl+h, ctrl+j, ctrl+k, ctrl+l
 open file in split window - :sp file.php
+
+to fold/unfold lines: visual select, then space to toggle display
+toggle between paste mode: F2
+edit vimrc: ,ev
+reload vimrc: ,sv
+comment a line: ,/
+uncomment a line: ,\
 
 =====================================
 =====================================
