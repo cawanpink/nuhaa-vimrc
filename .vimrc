@@ -87,7 +87,6 @@ set wildignore=*.o,*~,tags,.svn         " ignor on wildmenu
 set wildmode=longest:full
 
 "--------------------------------------------------
-
 function! RunPhpcs()
     let l:filename=@%
     let l:phpcs_output=system('phpcs --report=csv '.l:filename)
@@ -100,6 +99,20 @@ endfunction
 
 set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
 command! Phpcs execute RunPhpcs()
+
+"--------------------------------------------------
+function! <SID>StripTrailingWhitespace()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+nmap <silent> <Leader><space> :call <SID>StripTrailingWhitespace()<CR>
 
 "--------------------------------------------------
 " Open in last edit place
@@ -141,13 +154,17 @@ let g:LustyJugglerSuppressRubyWarning = 1
 "---------------------------------------------------
 " Grep options on F3
 let Grep_Skip_Dirs = '.svn'
-let Grep_Default_Filelist = '*.php *.inc *.js *.ini'
+let Grep_Default_Filelist = '*.php *.inc *.js *.rb'
 let Grep_Default_Options = '-i'
 nnoremap <silent> <F3> :Rgrep<CR>
 
 "---------------------------------------------------
 " Command-t
 let g:CommandTMatchWindowReverse=1  " show best match at the bottom
+
+"---------------------------------------------------
+" TaskList
+map <leader>td <Plug>TaskList
 
 "--------------------------------------------------
 " Shortcuts
@@ -159,7 +176,4 @@ map <Leader>\ :s/^\/\///<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q!<CR>
 
-map <leader>td <Plug>TaskList
-
 imap ;; <Esc>
-
