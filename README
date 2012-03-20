@@ -48,7 +48,7 @@ color themes, put inside colors/ folder
 
 =====================================
 
-USAGE
+USAGE - plugins
 
 grep: F3
 MRU: :MRU
@@ -65,12 +65,18 @@ Tasklist: ,td
 to fold/unfold lines: visual select, then space to toggle display
 phpcs: :Phpcs
 phpcomplete: use omni
+snipmate: doc_h <enter>
 
-autocomplete: tab
-autocomplete keyword: ctrl+x ctrl+p
-autocomplete omni: ctrl+x ctrl+o
+=====================================
 
-to jump to function definition and back: ctrl+[ and ctrl+T
+USAGE - built in
+
+autocomplete: ctrl-n
+to jump to function definition and back: ctrl+] and ctrl+t
+to list all function matches: g ctrl+] (or :tj <tagname>])
+to open function definition in new window: ctrl+w g ctrl+] 
+
+file browser: :n.
 
 change color on the fly
 :colo wombat
