@@ -87,21 +87,6 @@ set wildignore=*.o,*~,tags,.svn         " ignor on wildmenu
 set wildmode=longest:full
 
 "--------------------------------------------------
-" Word completion on <TAB>
-function! InsertTabWrapper(direction)
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  elseif "backward" == a:direction
-    return "\<c-p>"
-  else
-    return "\<c-n>"
-  endif
-endfunction
-inoremap <Tab> <C-R>=InsertTabWrapper("backward")<CR>
-inoremap <S-Tab> <C-R>=InsertTabWrapper("forward")<CR>
-
-"--------------------------------------------------
 
 function! RunPhpcs()
     let l:filename=@%
