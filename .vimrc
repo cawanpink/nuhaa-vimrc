@@ -161,6 +161,7 @@ nnoremap <silent> <F3> :Rgrep<CR>
 "---------------------------------------------------
 " Command-t
 let g:CommandTMatchWindowReverse=1  " show best match at the bottom
+let g:CommandTMaxFiles=50000 
 
 "---------------------------------------------------
 " TaskList
