@@ -83,7 +83,7 @@ map <C-l> <C-w>l
 "---------------------------------------------------
 " File name completion - Wild menu options
 set wildmenu                            " show menu (bash-like) on tab
-set wildignore=*.o,*~,tags,.svn         " ignor on wildmenu
+set wildignore=*.o,*~,tags,.svn,vendor  " ignor on wildmenu
 set wildmode=longest:full
 
 "--------------------------------------------------
@@ -99,6 +99,21 @@ endfunction
 
 set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
 command! Phpcs execute RunPhpcs()
+
+"--------------------------------------------------
+" Word completion on <TAB>
+"function! InsertTabWrapper(direction)
+"  let col = col('.') - 1
+"  if !col || getline('.')[col - 1] !~ '\k'
+"    return "\<tab>"
+"  elseif "backward" == a:direction
+"    return "\<c-p>"
+"  else
+"    return "\<c-n>"
+"  endif
+"endfunction
+"inoremap <Tab> <C-R>=InsertTabWrapper("backward")<CR>
+"inoremap <S-Tab> <C-R>=InsertTabWrapper("forward")<CR>
 
 "--------------------------------------------------
 function! <SID>StripTrailingWhitespace()
@@ -167,9 +182,17 @@ let g:CommandTMaxFiles=50000
 " TaskList
 map <leader>td <Plug>TaskList
 
+"---------------------------------------------------
+" snipMate
+let g:snips_author = 'Nuhaa All Bakry <nuhaa.bakry@my.experian.com>'
+let g:snips_copyright = 'Experian Hitwise'
+
 "--------------------------------------------------
 " Shortcuts
-"
+
+" jump to function in a new tab
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+
 " comment/uncoment a block
 map <Leader>/ :s/^/\/\//<CR>
 map <Leader>\ :s/^\/\///<CR>
