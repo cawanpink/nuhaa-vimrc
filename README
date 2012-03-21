@@ -12,7 +12,7 @@ surround - provides mappings to easily delete, change and add such surroundings 
 repeat - to repeat previous command, compliments surround nicely (https://github.com/tpope/vim-repeat)
 Tasklist - FIXME, TODO, and XXX (or a custom list) and put them in a handy list for you to browse (http://www.vim.org/scripts/script.php?script_id=2607)
 phpcs (http://www.vim.org/scripts/script.php?script_id=39280
-Snipmate - implements some of TextMate's snippets features in Vim (https://github.com/msanders/snipmate.vim)
+snipMate - implements some of TextMate's snippets features in Vim (https://github.com/msanders/snipmate.vim)
 
 =====================================
 
@@ -57,12 +57,12 @@ Command-t: ,t
 VCS: VCSBlame, VCSLog --stop-on-copy, VCSUpdate (,cu), VCSVimDiff (,cv)
 TagList: F8
 surround: cs"- ("a word" to -a word-)
-repeat: press . to repeat (meant to work with surround)
+repeat: press . to repeat (compliments surround nicely)
 lustyjuggler: ,lj
 Tasklist: ,td
 phpcs: :Phpcs
 phpcomplete: use omni
-snipmate: doc_h <enter>
+snipMate: doc_h<tab>
 
 =====================================
 
@@ -71,12 +71,12 @@ USAGE - built in
 autocomplete: ctrl-n
 to jump to function definition and back: ctrl+] and ctrl+t
 to list all function matches: g ctrl+] (or :tj <tagname>])
-to open function definition in new window: ctrl+w g ctrl+] 
+to open function definition in new split window: ctrl+w g ctrl+]
+to open function definition in a new tab: ctrl+\
 
 file browser: :n.
 
 change color on the fly - :colo wombat
-
 
 split window: ctrl+w s
 vertically: ctrl+w v
