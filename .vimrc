@@ -74,7 +74,7 @@ set textwidth=2048        " text witdth
 "set nowrap               " do not wrap lines
 
 "--------------------------------------------------
-" Easy window navigation
+" Easy mulyiple window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -87,21 +87,6 @@ set wildignore=*.o,*~,tags,.svn         " ignor on wildmenu
 set wildmode=longest:full
 
 "--------------------------------------------------
-" Word completion on <TAB>
-function! InsertTabWrapper(direction)
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  elseif "backward" == a:direction
-    return "\<c-p>"
-  else
-    return "\<c-n>"
-  endif
-endfunction
-inoremap <Tab> <C-R>=InsertTabWrapper("backward")<CR>
-inoremap <S-Tab> <C-R>=InsertTabWrapper("forward")<CR>
-
-
 function! RunPhpcs()
     let l:filename=@%
     let l:phpcs_output=system('phpcs --report=csv '.l:filename)
@@ -114,6 +99,20 @@ endfunction
 
 set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
 command! Phpcs execute RunPhpcs()
+
+"--------------------------------------------------
+function! <SID>StripTrailingWhitespace()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+nmap <silent> <Leader><space> :call <SID>StripTrailingWhitespace()<CR>
 
 "--------------------------------------------------
 " Open in last edit place
@@ -137,16 +136,16 @@ nnoremap <silent> <F8> :Tlist<CR>
 
 " tags list on right window
 let Tlist_Use_Right_Window = 1
-"" set the names of flags
+" set the names of flags
 let tlist_php_settings = 'php;c:class;f:function;d:constant'
-" close all folds except for current file
-let Tlist_File_Fold_Auto_Close = 1
-" " make tlist pane active when opened
+" make tlist pane active when opened
 let Tlist_GainFocus_On_ToggleOpen = 1
-" " width of window
+" width of window
 let Tlist_WinWidth = 40
-" " close tlist when a selection is made
+" close tlist when a selection is made
 "let Tlist_Close_On_Select = 1
+" Show tags for the current buffer only
+let Tlist_Show_One_File = 1
 
 "---------------------------------------------------
 " LustyJuggler
@@ -155,13 +154,17 @@ let g:LustyJugglerSuppressRubyWarning = 1
 "---------------------------------------------------
 " Grep options on F3
 let Grep_Skip_Dirs = '.svn'
-let Grep_Default_Filelist = '*.php *.inc *.js *.ini'
+let Grep_Default_Filelist = '*.php *.inc *.js *.rb'
 let Grep_Default_Options = '-i'
 nnoremap <silent> <F3> :Rgrep<CR>
 
 "---------------------------------------------------
 " Command-t
 let g:CommandTMatchWindowReverse=1  " show best match at the bottom
+
+"---------------------------------------------------
+" TaskList
+map <leader>td <Plug>TaskList
 
 "--------------------------------------------------
 " Shortcuts
@@ -173,7 +176,4 @@ map <Leader>\ :s/^\/\///<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q!<CR>
 
-map <leader>td <Plug>TaskList
-
 imap ;; <Esc>
-
