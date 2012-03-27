@@ -1,26 +1,31 @@
 PLUGINS USED:
 
-pathogen
-MRU
-Grep
-Command-t (need to install vim-nox for ruby support)
-TagList
-VCSCommand
-surround
-phpcomplete
-lustyjuggler (need to install vim-nox for ruby support)
-repeat
-Tasklist
-phpcs
+pathogen - easier plugin management (http://www.vim.org/scripts/script.php?script_id=2332)
+MRU - most recently used files management (http://www.vim.org/scripts/script.php?script_id=521)
+Grep - allows you to search for a pattern in one or more files and jump to them (http://www.vim.org/scripts/script.php?script_id=311)
+Command-t - fast, intuitive mechanism for opening files with a minimal number of keystrokes (http://www.vim.org/scripts/script.php?script_id=3025)
+TagList - source code browser (http://vim-taglist.sourceforge.net/)
+VCSCommand -  manipulating files controlled by CVS, SVN, SVK, git, bzr, and hg within VIM (http://www.vim.org/scripts/script.php?script_id=90)
+phpcomplete (http://www.vim.org/scripts/script.php?script_id=3171)
+LustyJuggler - high speed buffer juggler (http://www.vim.org/scripts/script.php?script_id=2050)
+surround - provides mappings to easily delete, change and add such surroundings in pair (https://github.com/tpope/vim-surround)
+repeat - to repeat previous command, compliments surround nicely (https://github.com/tpope/vim-repeat)
+Tasklist - FIXME, TODO, and XXX (or a custom list) and put them in a handy list for you to browse (http://www.vim.org/scripts/script.php?script_id=2607)
+phpcs (http://www.vim.org/scripts/script.php?script_id=39280
+snipMate - implements some of TextMate's snippets features in Vim (https://github.com/msanders/snipmate.vim)
 
 =====================================
 
-we need ctags:
+we need ctags (install exuberant-ctags):
 go to root directory, run to create tags in each folder:
 find * -type d -exec ~/.vim/gentags {} \;
 
 run this one to build global tag file, contains only non-static tags:
 ctags --verbose -f tags -h ".php" -R --exclude="\.svn" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf-v --file-scope=no -R
+
+=====================================
+
+for Command-t and lustyjuggler, need to install vim-nox for ruby support
 
 =====================================
 
@@ -39,7 +44,12 @@ make svn ignore tags file in every folder. in ~/.subversion/config,
 global-ignores = tags
 
 =====================================
-USAGE
+
+color themes, put inside colors/ folder
+
+=====================================
+
+USAGE - plugins
 
 grep: F3
 MRU: :MRU
@@ -47,28 +57,38 @@ Command-t: ,t
 VCS: VCSBlame, VCSLog --stop-on-copy, VCSUpdate (,cu), VCSVimDiff (,cv)
 TagList: F8
 surround: cs"- ("a word" to -a word-)
-repeat: press . to repeat (meant to work with surround)
+repeat: press . to repeat (compliments surround nicely)
 lustyjuggler: ,lj
-toggle between paste mode: F2
-edit vimrc: ,ev
-reload vimrc: ,sv
 Tasklist: ,td
-to fold/unfold lines: visual select, then space to toggle display
 phpcs: :Phpcs
 phpcomplete: use omni
+snipMate: doc_h<tab>
 
-autocomplete: tab
-autocomplete keyword: ctrl+x ctrl+p
-autocomplete omni: ctrl+x ctrl+o
+=====================================
 
-change color on the fly
-:colo wombat
-:color default
+USAGE - built in
+
+autocomplete: ctrl-n
+to jump to function definition and back: ctrl+] and ctrl+t
+to list all function matches: g ctrl+] (or :tj <tagname>])
+to open function definition in new split window: ctrl+w g ctrl+]
+to open function definition in a new tab: ctrl+\
+
+file browser: :n.
+
+change color on the fly - :colo wombat
 
 split window: ctrl+w s
 vertically: ctrl+w v
 navigate between windows:ctrl+h, ctrl+j, ctrl+k, ctrl+l
 open file in split window - :sp file.php
+
+to fold/unfold lines: visual select, then space to toggle display
+toggle between paste mode: F2
+edit vimrc: ,ev
+reload vimrc: ,sv
+comment a line: ,/
+uncomment a line: ,\
 
 =====================================
 =====================================
