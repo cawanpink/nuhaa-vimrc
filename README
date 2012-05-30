@@ -27,7 +27,7 @@ ctags --verbose -f tags -h ".php" -R --exclude="\.svn" --totals=yes --tag-relati
 
 for Command-t and lustyjuggler, need to install vim-nox for ruby support
 
-for Command-t, make sure you have ruby1.8 and ruby1.8-dev installed
+for Command-t, make sure you have ruby1.8 and ruby1.8-dev installed to run $ ruby extconf.rb -> make
 
 =====================================
 
