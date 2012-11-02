@@ -74,7 +74,7 @@ repeat: press . to repeat (compliments surround nicely)
 lustyjuggler: ,lj
 Tasklist: ,td
 phpcs: :Phpcs
-phpcomplete: use omni
+phpcomplete: use omni ctrl-x ctrl-o
 snipMate: doc_h<tab>
 
 =====================================
