@@ -13,7 +13,7 @@ repeat - to repeat previous command, compliments surround nicely (https://github
 Tasklist - FIXME, TODO, and XXX (or a custom list) and put them in a handy list for you to browse (http://www.vim.org/scripts/script.php?script_id=2607)
 phpcs (http://www.vim.org/scripts/script.php?script_id=39280
 snipMate - implements some of TextMate's snippets features in Vim (https://github.com/msanders/snipmate.vim)
-pyflakes - analyze Python programs and detect various errors (ttps://github.com/mitechie/pyflakes-pathogen)
+pyflakes - analyze Python programs and detect various errors (https://github.com/mitechie/pyflakes-pathogen)
 
 =====================================
 
