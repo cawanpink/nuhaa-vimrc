@@ -7,7 +7,8 @@ snippet imp
 snippet docs
 	'''
 	File: ${1:`Filename('$1.py', 'foo.py')`}
-	Author: ${2:`g:snips_author`}
+	Author: ${2:`g:snips_author_initial`}
+	Copyright: @copyright ${6:`g:snips_copyright`}, `strftime('%d %B, %Y')`
 	Description: ${3}
 	'''
 snippet wh

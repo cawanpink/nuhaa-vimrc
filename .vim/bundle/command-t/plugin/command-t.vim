@@ -28,16 +28,15 @@ endif
 let g:command_t_loaded = 1
 
 command CommandTBuffer call <SID>CommandTShowBufferFinder()
-command CommandTJump call <SID>CommandTShowJumpFinder()
 command -nargs=? -complete=dir CommandT call <SID>CommandTShowFileFinder(<q-args>)
 command CommandTFlush call <SID>CommandTFlush()
 
 if !hasmapto(':CommandT<CR>')
-  silent! nnoremap <unique> <silent> <Leader>t :CommandT<CR>
+  silent! nmap <unique> <silent> <Leader>t :CommandT<CR>
 endif
 
 if !hasmapto(':CommandTBuffer<CR>')
-  silent! nnoremap <unique> <silent> <Leader>b :CommandTBuffer<CR>
+  silent! nmap <unique> <silent> <Leader>b :CommandTBuffer<CR>
 endif
 
 function s:CommandTRubyWarning()
@@ -58,14 +57,6 @@ endfunction
 function s:CommandTShowFileFinder(arg)
   if has('ruby')
     ruby $command_t.show_file_finder
-  else
-    call s:CommandTRubyWarning()
-  endif
-endfunction
-
-function s:CommandTShowJumpFinder()
-  if has('ruby')
-    ruby $command_t.show_jump_finder
   else
     call s:CommandTRubyWarning()
   endif

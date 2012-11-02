@@ -43,33 +43,33 @@ snippet doc_cp
 	 *
 	 * @package ${2:default}
 	 * @author ${3:`g:snips_author`}
-	**/${4}
+	 * @copyright ${4:`g:snips_copyright`}, `strftime('%d %B, %Y')`
+	**/${5}
 # Class Variable - post doc
 snippet doc_vp
 	/**
 	 * ${1:undocumented class variable}
-	 *
 	 * @var ${2:string}
 	 **/${3}
 # Class Variable
 snippet doc_v
 	/**
 	 * ${3:undocumented class variable}
-	 *
 	 * @var ${4:string}
 	 **/
-	${1:var} $${2};${5}
+	${1:private} $${2};${5}
 # Class
 snippet doc_c
 	/**
 	 * ${3:undocumented class}
 	 *
-	 * @packaged ${4:default}
+	 * @package ${4:default}
 	 * @author ${5:`g:snips_author`}
+	 * @copyright ${6:`g:snips_copyright`}, `strftime('%d %B, %Y')`
 	 **/
-	${1:}class ${2:}
-	{${6}
-	} // END $1class $2
+	${1:}class ${2:}{
+		${7}
+	}
 # Constant Definition - post doc
 snippet doc_dp
 	/**
@@ -86,43 +86,20 @@ snippet doc_fp
 	/**
 	 * ${1:undocumented function}
 	 *
-	 * @return ${2:void}
-	 * @author ${3:`g:snips_author`}
+	 * @param ${2}
+	 * @return ${3:void}
 	 **/${4}
-# Function signature
-snippet doc_s
-	/**
-	 * ${4:undocumented function}
-	 *
-	 * @return ${5:void}
-	 * @author ${6:`g:snips_author`}
-	 **/
-	${1}function ${2}(${3});${7}
 # Function
 snippet doc_f
 	/**
 	 * ${4:undocumented function}
 	 *
-	 * @return ${5:void}
-	 * @author ${6:`g:snips_author`}
+	 * @param ${5} 
+	 * @return ${6:void}
 	 **/
-	${1}function ${2}(${3})
-	{${7}
+	${1:private} function ${2}(${3}){
+		${7}
 	}
-# Header
-snippet doc_h
-	/**
-	 * ${1}
-	 *
-	 * @author ${2:`g:snips_author`}
-	 * @version ${3:$Id$}
-	 * @copyright ${4:$2}, `strftime('%d %B, %Y')`
-	 * @package ${5:default}
-	 **/
-	
-	/**
-	 * Define DocBlock
-	 *//
 # Interface
 snippet doc_i
 	/**
@@ -133,18 +110,13 @@ snippet doc_i
 	 **/
 	interface ${1:}
 	{${5}
-	} // END interface $1
+	} 
 # class ...
 snippet class
-	/**
-	 * ${1}
-	 **/
-	class ${2:ClassName}
+	class ${1:ClassName}
 	{
-		${3}
-		function ${4:__construct}(${5:argument})
-		{
-			${6:// code...}
+		${2:public} function ${3:__construct}(${4:argument}){
+			${5:// code...}
 		}
 	}
 # define(...)

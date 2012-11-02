@@ -29,6 +29,7 @@ set autoread              " Set to auto read when a file is changed from the out
 set wmh=0                 " minimal number of lines used for any window
 set nu                    " show numbers
 set showcmd               " show typed commands in bottom right corcer
+set background=dark
 
 "---------------------------------------------------
 " Indentation and tab related
@@ -60,7 +61,6 @@ filetype indent on
 "--------------------------------------------------
 " toggling between paste mode
 set pastetoggle=<F2>
-
 "--------------------------------------------------
 " Searching
 set sm                       " jump to matches during entering the pattern
@@ -83,7 +83,7 @@ map <C-l> <C-w>l
 "---------------------------------------------------
 " File name completion - Wild menu options
 set wildmenu                            " show menu (bash-like) on tab
-set wildignore=*.o,*~,tags,.svn         " ignor on wildmenu
+set wildignore=*.o,*~,tags,.svn,vendor  " ignor on wildmenu
 set wildmode=longest:full
 
 "--------------------------------------------------
@@ -99,6 +99,21 @@ endfunction
 
 set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
 command! Phpcs execute RunPhpcs()
+
+"--------------------------------------------------
+" Word completion on <TAB>
+"function! InsertTabWrapper(direction)
+"  let col = col('.') - 1
+"  if !col || getline('.')[col - 1] !~ '\k'
+"    return "\<tab>"
+"  elseif "backward" == a:direction
+"    return "\<c-p>"
+"  else
+"    return "\<c-n>"
+"  endif
+"endfunction
+"inoremap <Tab> <C-R>=InsertTabWrapper("backward")<CR>
+"inoremap <S-Tab> <C-R>=InsertTabWrapper("forward")<CR>
 
 "--------------------------------------------------
 function! <SID>StripTrailingWhitespace()
@@ -118,11 +133,20 @@ nmap <silent> <Leader><space> :call <SID>StripTrailingWhitespace()<CR>
 " Open in last edit place
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
+
+
+
 "--------------------------------------------------
 " Syntax coloring (~/.vim/colors/)
-" available colors: `ls /usr/share/vim/vimXX/colors`
+" available colors: ls /usr/share/vim/vimXX/colors
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
 set t_Co=256
-colorscheme mustang
+let g:solarized_termcolors= 256
+colorscheme solarized
 "colorscheme default
 
 "---------------------------------------------------
@@ -161,17 +185,33 @@ nnoremap <silent> <F3> :Rgrep<CR>
 "---------------------------------------------------
 " Command-t
 let g:CommandTMatchWindowReverse=1  " show best match at the bottom
+let g:CommandTMaxFiles=50000
 
 "---------------------------------------------------
 " TaskList
 map <leader>td <Plug>TaskList
 
+"---------------------------------------------------
+" snipMate
+let g:snips_author = 'Nuhaa All Bakry <nuhaa.bakry@my.experian.com>'
+let g:snips_author_initial = 'nuhaab'
+let g:snips_copyright = 'Experian Hitwise'
+
+"---------------------------------------------------
+" pyflakes
+let g:pyflakes_use_quickfix = 0
+
 "--------------------------------------------------
 " Shortcuts
-"
+
+" jump to function in a new tab
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+
 " comment/uncoment a block
 map <Leader>/ :s/^/\/\//<CR>
 map <Leader>\ :s/^\/\///<CR>
+map <Leader>h :s/^/#/<CR>
+map <Leader>H :s/^#//<CR>
 
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q!<CR>
