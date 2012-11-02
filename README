@@ -13,6 +13,7 @@ repeat - to repeat previous command, compliments surround nicely (https://github
 Tasklist - FIXME, TODO, and XXX (or a custom list) and put them in a handy list for you to browse (http://www.vim.org/scripts/script.php?script_id=2607)
 phpcs (http://www.vim.org/scripts/script.php?script_id=39280
 snipMate - implements some of TextMate's snippets features in Vim (https://github.com/msanders/snipmate.vim)
+pyflakes - analyze Python programs and detect various errors (ttps://github.com/mitechie/pyflakes-pathogen)
 
 =====================================
 
@@ -22,6 +23,9 @@ find * -type d -exec ~/.vim/gentags {} \;
 
 run this one to build global tag file, contains only non-static tags:
 ctags --verbose -f tags -h ".php" -R --exclude="\.svn" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf-v --file-scope=no -R
+
+for python,
+ctags -R . -i
 
 =====================================
 
