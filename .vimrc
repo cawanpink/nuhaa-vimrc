@@ -201,6 +201,15 @@ let g:snips_copyright = 'Experian Hitwise'
 " pyflakes
 let g:pyflakes_use_quickfix = 0
 
+"---------------------------------------------------
+" CtrlP
+let g:ctrlp_map = '<leader>t'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+  
 "--------------------------------------------------
 " Shortcuts
 
