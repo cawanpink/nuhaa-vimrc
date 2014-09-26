@@ -9,9 +9,6 @@ let mapleader = ","
 " Automatically reload .vimrc when changing
 autocmd! bufwritepost .vimrc source! %
 
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 "--------------------------------------------------
 " Character encoding
@@ -178,14 +175,10 @@ let g:LustyJugglerSuppressRubyWarning = 1
 "---------------------------------------------------
 " Grep options on F3
 let Grep_Skip_Dirs = '.svn'
-let Grep_Default_Filelist = '*.php *.inc *.js *.rb'
+let Grep_Default_Filelist = '*.php *.inc *.js *.rb *.java *.xml *.html'
 let Grep_Default_Options = '-i'
 nnoremap <silent> <F3> :Rgrep<CR>
 
-"---------------------------------------------------
-" Command-t
-let g:CommandTMatchWindowReverse=1  " show best match at the bottom
-let g:CommandTMaxFiles=50000
 
 "---------------------------------------------------
 " TaskList
@@ -198,6 +191,14 @@ let g:snips_author_initial = 'nuhaab'
 let g:snips_copyright = 'Experian Hitwise'
 
 "---------------------------------------------------
+" ultisnips
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
+"---------------------------------------------------
+" nerdtree
+nmap <leader>d :NERDTreeToggle<CR>
+
+"---------------------------------------------------
 " pyflakes
 let g:pyflakes_use_quickfix = 0
 
@@ -206,10 +207,10 @@ let g:pyflakes_use_quickfix = 0
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'file': '\v\.(exe|so|dll|tags)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
-  
+
 "--------------------------------------------------
 " Shortcuts
 
