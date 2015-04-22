@@ -30,17 +30,20 @@ export PS1="\[\e[1;36m\][\t] \[\e[m\]\u \W \[\e[1;37m\]$ \[\e[m\]"
 alias ginfo="git config --local --list && git log -n 1"
 
 # adding gradle
-GRADLE_HOME="$HOME/repo/gradle"
-export PATH="$GRADLE_HOME/bin:$PATH"
+#GRADLE_HOME="$HOME/repo/gradle"
+#export PATH="$GRADLE_HOME/bin:$PATH"
 
-if [ -d "/Volumes/PRADA/homebrew-master/Cellar" ]; then
-	export HOMEBREW_TEMP="/Volumes/PRADA/homebrew-master/Cellar"
-fi
+#if [ -d "/Volumes/PRADA/homebrew-master/Cellar" ]; then
+#	export HOMEBREW_TEMP="/Volumes/PRADA/homebrew-master/Cellar"
+#fi
 
 #ctags installed via homebrew resides in /usr/local/bin
 #also Ensure user-installed binaries take precedence
 export PATH="/usr/local/bin:$PATH"
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
+#export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
 
+# mac has BSD version of ls, wont recognize --color
+alias ls='ls -G'
+#alias ls='ls -h --color'
 
-
+alias grep='grep --color=auto'
