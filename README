@@ -20,11 +20,11 @@ eclim - access eclipse code editing features (http://eclim.org)
 
 =====================================
 
-we need ctags (install exuberant-ctags):
+we need ctags (install exuberant-ctags) for php:
 go to root directory, run to create tags in each folder:
 find * -type d -exec ~/.vim/gentags {} \;
 
-run this one to build global tag file, contains only non-static tags:
+run this once to build global tag file, contains only non-static tags:
 ctags --verbose -f tags -h ".php" -R --exclude="\.svn" --totals=yes --tag-relative=yes --fields=+afkst --PHP-kinds=+cf-v --file-scope=no -R
 
 for python,
