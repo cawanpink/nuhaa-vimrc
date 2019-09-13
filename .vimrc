@@ -1,14 +1,9 @@
 " Use pathogen to easily modify the runtime path to include all
 " plugins under the ~/.vim/bundle directory
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+execute pathogen#infect()
 
 " change the mapleader from \ to ,
 let mapleader = ","
-
-" Automatically reload .vimrc when changing
-autocmd! bufwritepost .vimrc source! %
-
 
 "--------------------------------------------------
 " Character encoding
@@ -142,8 +137,8 @@ else
     set background=dark
 endif
 set t_Co=256
-let g:solarized_termcolors= 256
-colorscheme solarized
+"let g:solarized_termcolors= 256
+colorscheme mustang
 "colorscheme default
 
 "---------------------------------------------------
@@ -186,9 +181,9 @@ map <leader>td <Plug>TaskList
 
 "---------------------------------------------------
 " snipMate
-let g:snips_author = 'Nuhaa All Bakry <nuhaa.bakry@my.experian.com>'
-let g:snips_author_initial = 'nuhaab'
-let g:snips_copyright = 'Experian Hitwise'
+let g:snips_author = 'Nuhaa All Bakry'
+let g:snips_author_initial = 'NB'
+let g:snips_copyright = 'NB'
 
 "---------------------------------------------------
 " ultisnips
