@@ -1,0 +1,42 @@
+execute pathogen#infect()
+
+filetype plugin indent on
+
+" change the mapleader from \ to ,
+let mapleader = "," 
+
+set nocompatible          " We're running Vim, not Vi!
+syntax on                 " syntax highlingting
+set backspace=2           " backspace del all
+set history=500           " history of commands
+set autoread              " Set to auto read when a file is changed from the outside
+set wmh=0                 " minimal number of lines used for any window
+set nu                    " show numbers
+set showcmd               " show typed commands in bottom right corcer
+set background=dark
+
+
+"---------------------------------------------------
+" Indentation and tab related
+set ai                       " auto indent
+set si                       " smart indent
+set tabstop=4                " Force tabs to be displayed/expanded to 4 spaces (instead of default 8).
+"set expandtab                " Turn Tab keypresses into spaces. You can still insert real Tabs as [Ctrl]-V [Tab].
+set shiftwidth=4             " When auto-indenting, indent by this much. (Use spaces/tabs per expandtab.)
+retab                        " Change all the existing tab characters to match the current tab settings
+
+"--------------------------------------------------
+" enable filetype
+filetype plugin on        " file type based syntax highlight
+filetype indent on
+
+" comment/uncoment a block
+map <Leader>/ :s/^/\/\//<CR>
+map <Leader>\ :s/^\/\///<CR>
+map <Leader>h :s/^/#/<CR>
+map <Leader>H :s/^#//<CR>
+
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q!<CR>
+
+imap ;; <Esc>
